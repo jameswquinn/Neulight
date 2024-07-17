@@ -1,0 +1,329 @@
+// Neulight SASS v1.1.0
+// A lightweight neumorphic SASS framework
+// https://github.com/yourusername/neulight-sass
+// Licensed under MIT (https://github.com/yourusername/neulight-sass/blob/main/LICENSE)
+
+// Variables
+$neulight-bg-color: #e0e5ec !default;
+$neulight-shadow-light: #ffffff !default;
+$neulight-shadow-dark: #a3b1c6 !default;
+$neulight-text-color: #4a4a4a !default;
+$neulight-primary-color: #4a90e2 !default;
+$neulight-secondary-color: #f39c12 !default;
+$neulight-success-color: #2ecc71 !default;
+$neulight-danger-color: #e74c3c !default;
+$neulight-focus-color: rgba(74, 144, 226, 0.3) !default;
+
+// Dark mode colors
+$neulight-dark-bg-color: #2c3e50 !default;
+$neulight-dark-shadow-light: #3e5771 !default;
+$neulight-dark-shadow-dark: #1a2530 !default;
+$neulight-dark-text-color: #e0e5ec !default;
+$neulight-dark-primary-color: #3498db !default;
+$neulight-dark-secondary-color: #f1c40f !default;
+
+// Mixins
+@mixin neulight-neumorphic {
+  border-radius: 10px;
+  background: var(--neulight-bg-color);
+  box-shadow: 5px 5px 10px var(--neulight-shadow-dark),
+              -5px -5px 10px var(--neulight-shadow-light);
+}
+
+@mixin neulight-neumorphic-inset {
+  border-radius: 10px;
+  background: var(--neulight-bg-color);
+  box-shadow: inset 5px 5px 10px var(--neulight-shadow-dark),
+              inset -5px -5px 10px var(--neulight-shadow-light);
+}
+
+// Root styles
+:root {
+  --neulight-bg-color: #{$neulight-bg-color};
+  --neulight-shadow-light: #{$neulight-shadow-light};
+  --neulight-shadow-dark: #{$neulight-shadow-dark};
+  --neulight-text-color: #{$neulight-text-color};
+  --neulight-primary-color: #{$neulight-primary-color};
+  --neulight-secondary-color: #{$neulight-secondary-color};
+  --neulight-success-color: #{$neulight-success-color};
+  --neulight-danger-color: #{$neulight-danger-color};
+  --neulight-focus-color: #{$neulight-focus-color};
+}
+
+.neulight-dark {
+  --neulight-bg-color: #{$neulight-dark-bg-color};
+  --neulight-shadow-light: #{$neulight-dark-shadow-light};
+  --neulight-shadow-dark: #{$neulight-dark-shadow-dark};
+  --neulight-text-color: #{$neulight-dark-text-color};
+  --neulight-primary-color: #{$neulight-dark-primary-color};
+  --neulight-secondary-color: #{$neulight-dark-secondary-color};
+}
+
+body {
+  background-color: var(--neulight-bg-color);
+  color: var(--neulight-text-color);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+// Typography
+@each $size in (xs, sm, base, lg, xl, 2xl, 3xl, 4xl, 5xl) {
+  $font-size: (
+    xs: 0.75rem,
+    sm: 0.875rem,
+    base: 1rem,
+    lg: 1.125rem,
+    xl: 1.25rem,
+    2xl: 1.5rem,
+    3xl: 1.875rem,
+    4xl: 2.25rem,
+    5xl: 3rem
+  );
+  .neulight-text-#{$size} { font-size: map-get($font-size, $size); }
+}
+
+@each $weight in (thin, light, normal, medium, bold, black) {
+  $font-weight: (
+    thin: 100,
+    light: 300,
+    normal: 400,
+    medium: 500,
+    bold: 700,
+    black: 900
+  );
+  .neulight-font-#{$weight} { font-weight: map-get($font-weight, $weight); }
+}
+
+// Container
+.neulight-container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (min-width: 576px) { max-width: 540px; }
+  @media (min-width: 768px) { max-width: 720px; }
+  @media (min-width: 992px) { max-width: 960px; }
+  @media (min-width: 1200px) { max-width: 1140px; }
+}
+
+// Neumorphic Styles
+.neulight-neumorphic {
+  @include neulight-neumorphic;
+}
+
+.neulight-neumorphic-inset {
+  @include neulight-neumorphic-inset;
+}
+
+// Buttons
+.neulight-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: var(--neulight-bg-color);
+  color: var(--neulight-text-color);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 2px 2px 5px var(--neulight-shadow-dark),
+                -2px -2px 5px var(--neulight-shadow-light);
+  }
+
+  &:active {
+    box-shadow: inset 2px 2px 5px var(--neulight-shadow-dark),
+                inset -2px -2px 5px var(--neulight-shadow-light);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--neulight-focus-color);
+  }
+}
+
+@each $color in (primary, secondary, success, danger) {
+  .neulight-btn-#{$color} {
+    background-color: var(--neulight-#{$color}-color);
+    color: #fff;
+  }
+}
+
+// Form Elements
+.neulight-input,
+.neulight-select,
+.neulight-textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: var(--neulight-bg-color);
+  color: var(--neulight-text-color);
+  box-shadow: inset 2px 2px 5px var(--neulight-shadow-dark),
+              inset -2px -2px 5px var(--neulight-shadow-light);
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--neulight-focus-color);
+  }
+}
+
+// Radio Buttons
+.neulight-radio {
+  position: relative;
+  display: inline-block;
+  padding-left: 30px;
+  cursor: pointer;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .neulight-radio-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: var(--neulight-bg-color);
+    border-radius: 50%;
+    box-shadow: inset 2px 2px 5px var(--neulight-shadow-dark),
+                inset -2px -2px 5px var(--neulight-shadow-light);
+  }
+
+  input:checked ~ .neulight-radio-checkmark:after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--neulight-primary-color);
+    transform: translate(-50%, -50%);
+  }
+}
+
+// Cards
+.neulight-card {
+  padding: 20px;
+  @include neulight-neumorphic;
+}
+
+// Toggle Switch
+.neulight-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .neulight-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--neulight-bg-color);
+    transition: .4s;
+    border-radius: 34px;
+    box-shadow: inset 2px 2px 5px var(--neulight-shadow-dark),
+                inset -2px -2px 5px var(--neulight-shadow-light);
+
+    &:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: var(--neulight-primary-color);
+      transition: .4s;
+      border-radius: 50%;
+      box-shadow: 2px 2px 5px var(--neulight-shadow-dark),
+                  -2px -2px 5px var(--neulight-shadow-light);
+    }
+  }
+
+  input:checked + .neulight-slider:before {
+    transform: translateX(26px);
+  }
+}
+
+// Flexbox Layout
+.neulight-flex { display: flex; }
+.neulight-flex-col { flex-direction: column; }
+.neulight-flex-wrap { flex-wrap: wrap; }
+.neulight-items-center { align-items: center; }
+.neulight-justify-center { justify-content: center; }
+.neulight-justify-between { justify-content: space-between; }
+.neulight-flex-grow { flex-grow: 1; }
+
+// Grid Layout
+.neulight-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@for $i from 2 through 4 {
+  .neulight-grid-cols-#{$i} {
+    grid-template-columns: repeat(#{$i}, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .neulight-grid-cols-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .neulight-grid-cols-3, .neulight-grid-cols-4 { grid-template-columns: 1fr; }
+}
+
+// Spacing Utilities
+@each $size in (1, 2, 3, 4, 5) {
+  $spacing: (
+    1: 0.25rem,
+    2: 0.5rem,
+    3: 1rem,
+    4: 1.5rem,
+    5: 3rem
+  );
+  .neulight-m-#{$size} { margin: map-get($spacing, $size); }
+  .neulight-mt-#{$size} { margin-top: map-get($spacing, $size); }
+  .neulight-p-#{$size} { padding: map-get($spacing, $size); }
+}
+
+// Responsive Utilities
+.neulight-hidden { display: none; }
+.neulight-block { display: block; }
+
+@each $breakpoint in (sm, md, lg, xl) {
+  $min-width: (
+    sm: 0,
+    md: 641px,
+    lg: 769px,
+    xl: 1025px
+  );
+  $max-width: (
+    sm: 640px,
+    md: 768px,
+    lg: 1024px,
+    xl: 99999px
+  );
+  @media (min-width: map-get($min-width, $breakpoint)) and (max-width: map-get($max-width, $breakpoint)) {
+    .neulight-#{$breakpoint}\:hidden { display: none; }
+    .neulight-#{$breakpoint}\:block { display: block; }
+  }
+}
