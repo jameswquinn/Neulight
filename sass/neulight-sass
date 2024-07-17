@@ -1,7 +1,7 @@
 // Neulight SASS v1.1.0
 // A lightweight neumorphic SASS framework
 // https://github.com/jameswquinn/Neulight/blob/main/sass/neulight-sass
-// Licensed under MIT (https://github.com/yourusername/neulight-sass/blob/main/LICENSE)
+// Licensed under MIT (https://github.com/jameswquinn/Neulight/blob/main/LICENSE)
 
 // Variables
 $neulight-bg-color: #e0e5ec !default;
