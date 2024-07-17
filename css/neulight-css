@@ -1,0 +1,329 @@
+/* Neulight CSS v1.1.0 (Compiled from SASS)
+ * A lightweight neumorphic CSS framework
+ * https://github.com/yourusername/neulight-css
+ * Licensed under MIT (https://github.com/yourusername/neulight-css/blob/main/LICENSE)
+ */
+
+:root {
+  --neulight-bg-color: #e0e5ec;
+  --neulight-shadow-light: #ffffff;
+  --neulight-shadow-dark: #a3b1c6;
+  --neulight-text-color: #4a4a4a;
+  --neulight-primary-color: #4a90e2;
+  --neulight-secondary-color: #f39c12;
+  --neulight-success-color: #2ecc71;
+  --neulight-danger-color: #e74c3c;
+  --neulight-focus-color: rgba(74, 144, 226, 0.3);
+}
+
+.neulight-dark {
+  --neulight-bg-color: #2c3e50;
+  --neulight-shadow-light: #3e5771;
+  --neulight-shadow-dark: #1a2530;
+  --neulight-text-color: #e0e5ec;
+  --neulight-primary-color: #3498db;
+  --neulight-secondary-color: #f1c40f;
+}
+
+body {
+  background-color: var(--neulight-bg-color);
+  color: var(--neulight-text-color);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.neulight-text-xs { font-size: 0.75rem; }
+.neulight-text-sm { font-size: 0.875rem; }
+.neulight-text-base { font-size: 1rem; }
+.neulight-text-lg { font-size: 1.125rem; }
+.neulight-text-xl { font-size: 1.25rem; }
+.neulight-text-2xl { font-size: 1.5rem; }
+.neulight-text-3xl { font-size: 1.875rem; }
+.neulight-text-4xl { font-size: 2.25rem; }
+.neulight-text-5xl { font-size: 3rem; }
+
+.neulight-font-thin { font-weight: 100; }
+.neulight-font-light { font-weight: 300; }
+.neulight-font-normal { font-weight: 400; }
+.neulight-font-medium { font-weight: 500; }
+.neulight-font-bold { font-weight: 700; }
+.neulight-font-black { font-weight: 900; }
+
+.neulight-container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .neulight-container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .neulight-container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .neulight-container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .neulight-container {
+    max-width: 1140px;
+  }
+}
+
+.neulight-neumorphic {
+  border-radius: 10px;
+  background: var(--neulight-bg-color);
+  box-shadow: 5px 5px 10px var(--neulight-shadow-dark),
+              -5px -5px 10px var(--neulight-shadow-light);
+}
+
+.neulight-neumorphic-inset {
+  border-radius: 10px;
+  background: var(--neulight-bg-color);
+  box-shadow: inset 5px 5px 10px var(--neulight-shadow-dark),
+              inset -5px -5px 10px var(--neulight-shadow-light);
+}
+
+.neulight-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: var(--neulight-bg-color);
+  color: var(--neulight-text-color);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.neulight-btn:hover {
+  box-shadow: 2px 2px 5px var(--neulight-shadow-dark),
+              -2px -2px 5px var(--neulight-shadow-light);
+}
+
+.neulight-btn:active {
+  box-shadow: inset 2px 2px 5px var(--neulight-shadow-dark),
+              inset -2px -2px 5px var(--neulight-shadow-light);
+}
+
+.neulight-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--neulight-focus-color);
+}
+
+.neulight-btn-primary {
+  background-color: var(--neulight-primary-color);
+  color: #fff;
+}
+
+.neulight-btn-secondary {
+  background-color: var(--neulight-secondary-color);
+  color: #fff;
+}
+
+.neulight-btn-success {
+  background-color: var(--neulight-success-color);
+  color: #fff;
+}
+
+.neulight-btn-danger {
+  background-color: var(--neulight-danger-color);
+  color: #fff;
+}
+
+.neulight-input,
+.neulight-select,
+.neulight-textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: var(--neulight-bg-color);
+  color: var(--neulight-text-color);
+  box-shadow: inset 2px 2px 5px var(--neulight-shadow-dark),
+              inset -2px -2px 5px var(--neulight-shadow-light);
+}
+
+.neulight-input:focus,
+.neulight-select:focus,
+.neulight-textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--neulight-focus-color);
+}
+
+.neulight-radio {
+  position: relative;
+  display: inline-block;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+.neulight-radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.neulight-radio .neulight-radio-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: var(--neulight-bg-color);
+  border-radius: 50%;
+  box-shadow: inset 2px 2px 5px var(--neulight-shadow-dark),
+              inset -2px -2px 5px var(--neulight-shadow-light);
+}
+
+.neulight-radio input:checked ~ .neulight-radio-checkmark:after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--neulight-primary-color);
+  transform: translate(-50%, -50%);
+}
+
+.neulight-card {
+  padding: 20px;
+  border-radius: 10px;
+  background: var(--neulight-bg-color);
+  box-shadow: 5px 5px 10px var(--neulight-shadow-dark),
+              -5px -5px 10px var(--neulight-shadow-light);
+}
+
+.neulight-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.neulight-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.neulight-switch .neulight-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--neulight-bg-color);
+  transition: .4s;
+  border-radius: 34px;
+  box-shadow: inset 2px 2px 5px var(--neulight-shadow-dark),
+              inset -2px -2px 5px var(--neulight-shadow-light);
+}
+
+.neulight-switch .neulight-slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--neulight-primary-color);
+  transition: .4s;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px var(--neulight-shadow-dark),
+              -2px -2px 5px var(--neulight-shadow-light);
+}
+
+.neulight-switch input:checked + .neulight-slider:before {
+  transform: translateX(26px);
+}
+
+.neulight-flex { display: flex; }
+.neulight-flex-col { flex-direction: column; }
+.neulight-flex-wrap { flex-wrap: wrap; }
+.neulight-items-center { align-items: center; }
+.neulight-justify-center { justify-content: center; }
+.neulight-justify-between { justify-content: space-between; }
+.neulight-flex-grow { flex-grow: 1; }
+
+.neulight-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.neulight-grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.neulight-grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.neulight-grid-cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 768px) {
+  .neulight-grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .neulight-grid-cols-3, .neulight-grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.neulight-m-1 { margin: 0.25rem; }
+.neulight-m-2 { margin: 0.5rem; }
+.neulight-m-3 { margin: 1rem; }
+.neulight-m-4 { margin: 1.5rem; }
+.neulight-m-5 { margin: 3rem; }
+
+.neulight-mt-1 { margin-top: 0.25rem; }
+.neulight-mt-2 { margin-top: 0.5rem; }
+.neulight-mt-3 { margin-top: 1rem; }
+.neulight-mt-4 { margin-top: 1.5rem; }
+.neulight-mt-5 { margin-top: 3rem; }
+
+.neulight-p-1 { padding: 0.25rem; }
+.neulight-p-2 { padding: 0.5rem; }
+.neulight-p-3 { padding: 1rem; }
+.neulight-p-4 { padding: 1.5rem; }
+.neulight-p-5 { padding: 3rem; }
+
+.neulight-hidden { display: none; }
+.neulight-block { display: block; }
+
+@media (min-width: 0) and (max-width: 640px) {
+  .neulight-sm\:hidden { display: none; }
+  .neulight-sm\:block { display: block; }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .neulight-md\:hidden { display: none; }
+  .neulight-md\:block { display: block; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .neulight-lg\:hidden { display: none; }
+  .neulight-lg\:block { display: block; }
+}
+
+@media (min-width: 1025px) and (max-width: 99999px) {
+  .neulight-xl\:hidden { display: none; }
+  .neulight-xl\:block { display: block; }
+}
